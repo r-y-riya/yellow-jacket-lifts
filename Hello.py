@@ -44,6 +44,77 @@ workouts = {
     "Medicine Ball Slams": (["Abdominal, Cardio"], 15, "4 Sets of 25 Repetitions", "https://youtu.be/QxYhFwMd1Ks?si=Qip0gn5wVYM5j7Kf"),
     "Knee-to-Elbow Crunches": (["Abdominal"], 15, "4 Sets of 25 Repetitions", "https://youtu.be/FcjwuLMdGyM?si=r4yV5RC5Zn0gI3-V"),
     }
+import streamlit as st
+import streamlit as st
+
+st.markdown("""
+    <style>
+    .white-heading {
+        color: white !important;
+        font-size: 24px !important;
+        font-weight: bold !important;
+        line-height: 1.5 !important;
+        margin-bottom: 1rem !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# Inject custom CSS
+st.markdown("""
+    <style>
+        /* Set white background */
+        .stApp {
+            background-color: white;
+        }
+
+        html, body, [class*="css"] {
+    color: #002B5B; /* Dark blue */
+}
+
+h1 {
+    color: white !important;
+}
+
+
+        /* Headers - dark blue */
+        h1, h2, h3, h4, h5, h6 {
+            color: #002B5B !important;
+        }
+
+        /* Buttons - blue background, white text */
+        .stButton > button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .stButton > button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Text input borders - blue */
+        .stTextInput > div > div > input {
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            color: #002B5B;
+        }
+
+        /* Selectbox styling */
+        .stSelectbox > div > div {
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            color: #002B5B;
+        }
+
+        /* Markdown text */
+        .stMarkdown {
+            color: #002B5B;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
 
 # Displays Exercises Based on User's Inputs 
 def exercises(name, time):
@@ -65,9 +136,21 @@ def exercises(name, time):
         st.write("---")
         
 # Sidebar for Navigation
-st.sidebar.title("**Yellow Jacket Lifts**")
-st.sidebar.image("yellowjacket.png")
-st.sidebar.write("Please select a workout type and desired maximum time of workout.")
+# st.sidebar.title("**Workout Generator**")
+# # st.sidebar.image("yellowjacket.png")
+# st.sidebar.write("Please select a workout type and desired maximum time of workout.")
+st.sidebar.markdown(
+    '<div class="white-heading">Workout Generator</div>',
+    unsafe_allow_html=True
+)
+
+
+
+st.sidebar.markdown(
+    '<span style="color: white;">Please select a workout type and desired maximum time of workout.</span>',
+    unsafe_allow_html=True
+)
+
 
 # User's Desired Workout Type
 exerciseGroup = st.sidebar.selectbox("**Select an Exercise Group**", ["Cardio", "Chest", "Arms (Triceps and Biceps)", "Shoulders", "Back", "Legs", "Abdominal"]) #NEW
